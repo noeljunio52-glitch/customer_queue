@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Customer Queue Challenge | CC104 Game Project</title>
+  <!-- Bootstrap and jQuery are stored locally so the game runs offline -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="container py-4">
+    <div class="game-card mx-auto">
+
+      <header class="text-center mb-3">
+        <h1 class="h3 mb-1">Customer Queue Challenge</h1>
+        <p class="text-muted small mb-0">Customers must be served in the order they arrived. Serve 10 customers to win!</p>
+      </header>
+
+      <!-- Counters and progress indicator -->
+      <section class="row text-center g-2 mb-2">
+        <div class="col-4"><div class="stat-box"><div class="stat-label">Waiting</div><div class="stat-value" id="waiting">0</div></div></div>
+        <div class="col-4"><div class="stat-box"><div class="stat-label">Served</div><div class="stat-value" id="served">0</div></div></div>
+        <div class="col-4"><div class="stat-box"><div class="stat-label">Target</div><div class="stat-value" id="target">10</div></div></div>
+      </section>
+      <div class="progress mb-3" role="progressbar" aria-label="Customers served" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0" id="progress-wrap">
+        <div class="progress-bar" id="progress-bar" style="width: 0%"></div>
+      </div>
+
+      <div id="message" class="alert alert-info py-2 text-center" role="status" aria-live="polite"></div>
+
+      <!-- Peek: shows the next customer WITHOUT removing them -->
+      <div class="peek-box text-center mb-3">
+        Next customer (peek): <strong id="peek">none</strong>
+      </div>
+
+      <div class="row g-3">
+        <!-- Waiting line (the queue) -->
+        <div class="col-12 col-md-7">
+          <h2 class="h6">Waiting Line <span class="text-muted small">(front &rarr; back)</span></h2>
+          <div id="line" class="line-box"></div>
+        </div>
+        <!-- Service counter -->
+        <div class="col-12 col-md-5">
+          <h2 class="h6">Service Counter</h2>
+          <div id="counter" class="counter-box">No one yet</div>
+        </div>
+      </div>
+
+      <div class="d-flex flex-wrap justify-content-center gap-2 mt-4">
+        <button type="button" id="add-btn" class="btn btn-primary">Add Customer</button>
+        <button type="button" id="serve-btn" class="btn btn-success">Serve Customer</button>
+        <button type="button" id="reset-btn" class="btn btn-outline-secondary">Reset</button>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>

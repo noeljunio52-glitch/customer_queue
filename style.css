@@ -1,0 +1,72 @@
+/* Customer Queue Challenge styles (Bootstrap handles the layout) */
+
+body { background: #f3f5fa; min-height: 100vh; }
+
+.game-card {
+  max-width: 640px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px 16px 24px;
+  box-shadow: 0 6px 24px rgba(30, 40, 80, 0.12);
+}
+
+.stat-box { background: #f3f5fa; border-radius: 10px; padding: 6px 4px; }
+.stat-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; color: #5b6478; }
+.stat-value { font-size: 1.5rem; font-weight: 700; line-height: 1.2; }
+
+#message { min-height: 2.6rem; }
+
+.peek-box {
+  background: #fff8e1;
+  border: 1px dashed #f0b400;
+  border-radius: 10px;
+  padding: 8px;
+}
+
+/* Waiting line: customers shown left to right in arrival order */
+.line-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-content: flex-start;
+  min-height: 120px;
+  padding: 10px;
+  background: #eef1f8;
+  border-radius: 12px;
+}
+.line-box .empty-text { color: #7a8297; align-self: center; width: 100%; text-align: center; }
+
+.customer {
+  position: relative;
+  background: #1d7bd6;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 8px 12px;
+}
+/* The first customer is the front of the queue */
+.customer.front { background: #2ea44f; }
+.customer.front::after {
+  content: "FRONT";
+  position: absolute;
+  top: -9px;
+  left: 6px;
+  font-size: 0.6rem;
+  background: #212529;
+  color: #fff;
+  border-radius: 6px;
+  padding: 1px 5px;
+}
+
+.counter-box {
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 600;
+  background: #e6f6ea;
+  border: 2px solid #2ea44f;
+  border-radius: 12px;
+  padding: 10px;
+}
